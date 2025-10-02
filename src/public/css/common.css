@@ -1,0 +1,98 @@
+.header {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background: #FFFFFF;
+}
+
+.header__inner {
+    margin: 0 0 0 0;
+}
+
+hr {
+    margin: 40px auto 0px auto;
+    height: 1px;
+    color: #E0DFDE;
+    background-color: #E0DFDE;
+}
+
+.header-utilities {
+    display: flex;
+    justify-content: flex-start;
+    vertical-align: middle;
+    align-items: center;
+    width: 504px;
+    height: 100px;
+    background-color: white;
+}
+
+.header__logo {
+    text-align: center;
+    vertical-align: middle;
+    color: #F5C800;
+    font-family: jsMath-cmti10;
+    text-decoration: italic;
+    font-weight: 300;
+    font-size: 30px;
+
+
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    vertical-align: middle;
+    width: 500px;
+    height: 100px;
+
+}
+
+.header-nav__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100px;
+    height: 34px;
+    background-color: #F0F0F0;
+}
+
+.header-nav__link {
+    text-align: center;
+    color: #D9C6B5;
+    text-decoration: none;
+}
+
+.header-nav__button {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* ページネーション */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination li:not(.active) {
+    border: 1px solid #E0DFDE;
+    padding: 4px 12px;
+}
+
+.pagination li:not(:last-child) {
+    border-right: none;
+}
+
+.pagination a {
+    color: #8B7969;
+    text-decoration: none;
+}
+
+.pagination__link {
+    text-decoration: none;
+}

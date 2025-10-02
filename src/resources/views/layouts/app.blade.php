@@ -19,7 +19,6 @@
                     mogitate
                 </span>
             </div>
-            <hr>
         </div>
     </header>
 

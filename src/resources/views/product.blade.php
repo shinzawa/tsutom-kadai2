@@ -29,8 +29,7 @@
             <nav>
                 <ul class="product-nav">
                     <li class="prudoct-nav__item">
-                        <form class="form" action="/product/register" method="post" novalidate>
-                            @csrf
+                        <form class="form" action="/products/register" method="get" novalidate>
                             <button class="product-nav__button">＋商品追加</button>
                         </form>
                     </li>

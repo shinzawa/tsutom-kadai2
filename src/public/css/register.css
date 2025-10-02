@@ -1,0 +1,217 @@
+.register__main {
+    width: 1512px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register__content {
+    width: 760px;
+    background-color: #F8F8F8;
+}
+
+.register-head {
+    margin: 0 auto;
+    font-family: YuGothM;
+    font-size: 34px;
+
+    color: #333333;
+}
+
+.register-form__main {
+    width: 760px;
+    display: block;
+}
+
+.register-form__group {
+    width: 760px;
+    height: 77px;
+    opacity: 1;
+    margin: 15px 0 15px 0;
+}
+
+.register-form__group-textarea {
+    width: 760px;
+    height: 194px;
+    opacity: 1;
+    margin: 15px 0 15px 0;
+}
+
+.register-form__textarea {
+    width: 760px;
+    height: 160px;
+    border-radius: 5px;
+    border-width: 1px;
+    opacity: 1;
+    padding-top: 11px;
+    padding-right: 10px;
+    padding-bottom: 11px;
+    padding-left: 10px;
+    gap: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E0DFDE;
+    color: #E0DFDE;
+}
+
+.register-form__label {
+    font-family: YuGothM;
+    font-size: 16px;
+    width: 146px;
+    height: 24px;
+    opacity: 1;
+    gap: 10px;
+}
+
+.register-form__required {
+    color: #FFFFFF;
+    background-color: #FD0707;
+    font-size: 12px;
+    font-family: YuGothM;
+
+}
+
+.register-form__many {
+    color: #FD0707;
+    font-size: 12px;
+    font-family: YuGothM;
+
+}
+
+.register-form__checkbox {
+    width: 314px;
+    height: 43px;
+    margin: 15px 0 0 0;
+}
+
+.register-form__input {
+    width: 760px;
+    height: 43px;
+    font-family: YuGothM;
+    font-size: 14px;
+    color: #E0DFDE;
+    border-radius: 5px;
+    border-width: 1px;
+    opacity: 1;
+    padding-top: 11px;
+    padding-right: 10px;
+    padding-bottom: 11px;
+    padding-left: 10px;
+    gap: 10px;
+
+    border: 1px solid #E0DFDE;
+}
+
+.register-form__imagefile {
+    width: 760px;
+    display: block;
+}
+
+.register-form__imagefile-span {
+    color: #4B4B4B;
+    background-color: #E0DFDE;
+    border: 1px solid #4B4B4B;
+}
+
+.register-form__seasons {
+    width: 314px;
+    height: 77px;
+    opacity: 1;
+    margin: 15px 0 15px 0;
+}
+
+.register-form__btn {
+    display: block;
+    width: 760px;
+    height: 50px;
+    margin: 15px 0 0 0;
+}
+
+.register-form__btn-inner {
+    width: 760px;
+    height: 50px;
+    opacity: 1;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.register-form__back-btn {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    opacity: 1;
+    padding-top: 13px;
+    padding-right: 10px;
+    padding-bottom: 13px;
+    padding-left: 10px;
+    gap: 10px;
+    background: #E0DFDE;
+    box-shadow: 0px 4px 10px 0px #0000001A;
+}
+
+.register-form__store-btn {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    opacity: 1;
+    padding-top: 13px;
+    padding-right: 10px;
+    padding-bottom: 13px;
+    padding-left: 10px;
+    gap: 10px;
+    background: #F5C800;
+    box-shadow: 0px 4px 10px 0px #0000001A;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+/*ボックス枠のCSS*/
+.register-form__checkbox-label:after {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 50%;
+    left: 15px;
+    margin: -10px 0 0 -2px;
+    width: 17px;
+    height: 17px;
+    border: 3px solid black;
+    border-radius: 50%;
+}
+
+.register-form__checkbox-label {
+    position: relative;
+    text-align: center;
+    padding: 0 0 0 40px;
+}
+
+.register-form__checkbox-label:hover:after {
+    border-color: #0171bd;
+}
+
+.register-form__checkbox-label:after,
+.register-form__checkbox-label:before {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 50%;
+}
+
+/*チェックマークの追加*/
+.register-form__checkbox-label:before {
+    left: 21px;
+    margin-top: -7px;
+    width: 5px;
+    height: 9px;
+    border-right: 4px solid red;
+    border-bottom: 4px solid red;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+/*チェックボックスがチェックされた時に動作する内容*/
+input[type=checkbox]:checked+.register-form__checkbox-label:before {
+    opacity: 1;
+}

@@ -20,26 +20,30 @@
 
 .register-form__main {
     width: 760px;
+    height: 1300px;
     display: block;
 }
 
 .register-form__group {
     width: 760px;
-    height: 77px;
+    height: 160px;
     opacity: 1;
-    margin: 15px 0 15px 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /* margin: 15px 0 15px 0; */
 }
 
 .register-form__group-textarea {
     width: 760px;
     height: 194px;
     opacity: 1;
-    margin: 15px 0 15px 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .register-form__textarea {
     width: 760px;
-    height: 160px;
+    height: 100px;
     border-radius: 5px;
     border-width: 1px;
     opacity: 1;
@@ -50,7 +54,6 @@
     gap: 10px;
     background: #FFFFFF;
     border: 1px solid #E0DFDE;
-    color: #E0DFDE;
 }
 
 .register-form__label {
@@ -83,12 +86,15 @@
     margin: 15px 0 0 0;
 }
 
+input::placeholder  {
+    color: #E0DFDE;
+}
+
 .register-form__input {
     width: 760px;
     height: 43px;
     font-family: YuGothM;
     font-size: 14px;
-    color: #E0DFDE;
     border-radius: 5px;
     border-width: 1px;
     opacity: 1;
@@ -114,16 +120,17 @@
 
 .register-form__seasons {
     width: 314px;
-    height: 77px;
+    height: 110px;
     opacity: 1;
-    margin: 15px 0 15px 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .register-form__btn {
     display: block;
     width: 760px;
     height: 50px;
-    margin: 15px 0 0 0;
+    padding-top: 15px;
 }
 
 .register-form__btn-inner {
@@ -214,4 +221,18 @@ input[type=checkbox] {
 /*チェックボックスがチェックされた時に動作する内容*/
 input[type=checkbox]:checked+.register-form__checkbox-label:before {
     opacity: 1;
+}
+
+/* エラーメッセージ */
+.register-form__error-message {
+    padding-top: 8px;
+    color: #FD0707;
+}
+
+.register-form__name-group .register-form__error-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 32px;
 }

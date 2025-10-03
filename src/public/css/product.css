@@ -46,6 +46,7 @@
     height: 280px;
 }
 
+
 .product-card__frame {
     width: 1162px;
     height: 790px;
@@ -107,3 +108,50 @@
 .product__title {}
 
 .section__title {}
+
+/* フォーム */
+.sort-form {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    gap: 24px;
+}
+
+.search-form__keyword-input {
+    padding: 8px 12px;
+    /* placeholderが表示される最低限の幅を最小値とする */
+    min-width: 324px;
+    border: 1px solid #E3DED9;
+    background-color: #FBFBFB;
+}
+
+.sort-form__gender,
+.sort-form__category {
+    position: relative;
+}
+
+.sort-form__gender::after,
+.sort-form__category::after {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #BEB1A6;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    content: "";
+    transform: translateY(-50%);
+}
+
+.sort-form__gender-select,
+.sort-form__category-select {
+    padding: 8px 12px;
+    height: 100%;
+    background-color: #F4F4F4;
+}
+
+.sort-form__gender-select {
+    min-width: 96px;
+}

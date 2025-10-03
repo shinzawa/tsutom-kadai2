@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Season;
+use App\Http\Requests\RegisterRequest;
 
 class ProductController extends Controller
 {
-    public function products(Request $request)
+    public function products()
     {
         // if (sort) sort
         // else 
@@ -21,18 +22,29 @@ class ProductController extends Controller
     public function product($productId)
     {
         $product = Product::find($productId);
-        $seasons = $product->seasons();
+        $seasons = $product->seasons()->get();
         return view('update', compact('product', 'seasons'));
     }
 
-    public function update(Request $request)
+    public function update(RegisterRequest $request, $productId)
     {
-        // update
-        $query = Product::query();
-        $products = $query->paginate(6);
-        $seasons = Season::all();
+        if ($request->has('back')) {
+            return redirect('/products');
+        }
 
-        return view('products', compact('products', 'seasons'));
+        $form = $request->all();
+        unset($form['_token']);
+        $product = Product::find($productId);
+        foreach ($request->seasons as $season_id) {
+            $sa[] = $season_id;
+        }
+        $product->seasons()->sync($sa);
+        unset($form['seasons']);
+        unset($form['_method']);
+        dd($form);
+        $product->update($form);
+
+        return $this->products();
     }
 
     public function search(Request $request)
@@ -44,24 +56,36 @@ class ProductController extends Controller
         return view('products', compact('product', 'seasons'));
     }
 
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
         if ($request->has('back')) {
             return redirect('/products');
         }
+
+        dd($request);
         // TODO register oparation 
-        $query = Product::query();
-        $products = $query->paginate(6);
-        $seasons = Season::all();
-        return view('products', compact('product', 'seasons'));
+        $product = Product::create(
+            $request->only([
+                'name',
+                'price',
+                'image',
+                'description'
+            ])
+        );
+        $seasons = $request->seasons;
+        foreach ($seasons as $season_id) {
+            $sa[] = $season_id;
+        }
+        $product->seasons()->attach($sa);
+
+        return $this->products();
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request, $productId)
     {
         // TODO destroy one record
-        $query = Product::query();
-        $products = $query->paginate(6);
-        $seasons = Season::all();
-        return view('products', compact('product', 'seasons'));
+        Product::find($productId)->delete();
+
+        return $this->products();
     }
 }

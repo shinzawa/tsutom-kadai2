@@ -10,7 +10,7 @@
         <div class="register-head">
             商品登録
         </div>
-        <form class="regiser-form" action="/products/register" method="post">
+        <form id="ProductForm" class="regiser-form" action="/products/register" method="post" enctype="multipart/form-data">
             @csrf
             <div class="register-form__main">
                 <div class="register-form__group">
@@ -40,13 +40,17 @@
                     </p>
                 </div>
 
-                <div class="register-form__group register-form__image">
-                    <label class="register-form__label" for="price">
-                        商品画像<span class="register-form__required">必須</span>
-                    </label>
-                    <image src="{{ asset(  'storage/' . old('image') )}}" width="374px" alt="{{ old('image')}}" id="preview"></image>
+                <div class="register-form__group-image">
+                    <div> <label class="register-form__label" for="price">
+                            商品画像<span class="register-form__required">必須</span>
+                        </label>
+                    </div>
+                    <div>
+                        <image src="{{ asset(  'storage/' . old('image') )}}" width="374px" height="340px" style="object-fit:cover;" alt="{{ old('image')}}" id="preview"></image>
+                    </div>
+
                     <div class="product-card__image">
-                        <label type="image" src="{{ asset(  'storage/' . old('image') )}}" width="374px" alt="{{ old('image')}}"></label>
+                        <label type="image" src="{{ asset(  'storage/' . old('image') )}}" width="374px" height="340px" style="object-fit: cover;" alt="{{ old('image')}}"></label>
                     </div>
                     <label for="image" class="register-form__imagefile">
                         <span class="register-form__imagefile-span">ファイルを選択</span>
@@ -59,7 +63,7 @@
                         @enderror
                     </p>
                 </div>
-                <div class="register-form__group">
+                <div class="register-form__group-seasons">
                     <div class="register-form__seasons">
                         <label class="register-form__label" for="seasons">
                             季節
@@ -99,21 +103,13 @@
                 </div>
                 <div class="register-form__btn">
                     <div class="register-form__btn-inner">
-                        <input class="register-form__back-btn btn" type="submit" value="戻る" name="back">
-                        <input class="register-form__store-btn" type="submit" value="登録" name="store">
+                        <input class="register-form__back-btn btn" type="submit" value="戻る" onclick="submitForm('/products','get')" name="back">
+                        <input class="register-form__store-btn" type="submit" value="登録" onclick="submitForm('/products/register','post')" name="store">
                     </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<script>
-    function previewFile(item) {
-        var fr = new FileReader();
-        fr.onload = (function() {
-            document.getElementById('preview').src = fr.result;
-        });
-        fr.readAsDataURL(item.files[0]);
-    }
-</script>
+<script src="{{ asset('/js/main.js') }}"></script>
 @endsection

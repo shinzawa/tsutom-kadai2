@@ -7,8 +7,8 @@
 @section('content')
 <div class="update__main">
     <div class="update__content">
-        <form action="/products/{{ $product->id}}/update" method="post" class="update-form" novalidate>
-            @method('PATCH')
+        <form id="ProductForm" action="/products/{{ $product->id}}/update" method="post" enctype="multipart/form-data" class="update-form" novalidate>
+            <!-- @method('PATCH') -->
             @csrf
             <div class="update-form__main">
                 <div class="update-form__upper">
@@ -17,8 +17,8 @@
                             <label class="update-form__label" for="price">
                                 商品画像<span class="update-form__required">必須</span>
                             </label>
-                            <image src="{{ asset(  'storage/' . old('image',isset($product) ? $product->image : '') )}}" width="374px" alt="{{ old('image', isset($product) ? $product->image : '')}}" id="preview"></image>
-                            <input class="update-form__input-file" type="file" name="image" id="image" accept="image/png,image/jpeg" onchange="previewFile(this);"></input>
+                            <image src="{{ asset(  'storage/' . old('image',isset($product) ? $product->image : '') )}}" width="374px" height="340px" style="object-fit:cover;" alt="{{ old('image', isset($product) ? $product->image : '')}}" id="preview"></image>
+                            <input class="update-form__input-file" type="file" name="image" id="imageInput" accept="image/png,image/jpeg" onchange="previewFile(this);"></input>
                             <p class="update-form__error-message">
                                 @error('image')
                                 {{ $message }}
@@ -99,8 +99,21 @@
                 </div>
                 <div class="update-form__btn">
                     <div class="update-form__btn-inner">
-                        <input class="update-form__back-btn btn" type="submit" value="戻る" name="back">
-                        <input class="update-form__store-btn" type="submit" value="登録" name="store">
+                        <input class="update-form__back-btn btn" type="submit" onclick="submitForm('/products','get')" value="戻る" name="back">
+                        <input class="update-form__store-btn" type="submit" onclick="submitForm('/products/{{ $product->id}}/update','post')" value="登録" name="store">
+
+                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 23" width="21" height="23" class="update-form__delete-btn" onclick="submitForm('/products/{{ $product->id }}/delete','post')">
+                            <defs>
+                                <image width="21" height="23" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAXAQMAAADeEZbeAAAAAXNSR0IB2cksfwAAAANQTFRF////p8QbyAAAAA9JREFUeJxjZGBgYKQRBgAErAAYCKmlPwAAAABJRU5ErkJggg==" />
+                            </defs>
+                            <style>
+                                .a {
+                                    fill: #fd0707
+                                }
+                            </style>
+                            <use href="#img1" x="0" y="0" />
+                            <path class="a" d="m19 4.3h-1.3v-1.3c0-1.5-1.2-2.7-2.7-2.7h-9.3c-1.5 0-2.7 1.2-2.7 2.7v1.3h-1.3c-0.8 0-1.4 0.6-1.4 1.4 0 0.7 0.6 1.3 1.4 1.3v10.7c0 2.9 2.4 5.3 5.3 5.3h6.7c2.9 0 5.3-2.4 5.3-5.3v-10.7c0.7 0 1.3-0.6 1.3-1.3 0-0.8-0.6-1.4-1.3-1.4zm-13.3-1.3h9.3v1.3h-9.3zm10.6 14.7c0 1.5-1.2 2.7-2.6 2.7h-6.7c-1.5 0-2.7-1.2-2.7-2.7v-10.7h12zm-10-8.6c-0.3 0-0.6 0.3-0.6 0.6v8c0 0.4 0.3 0.7 0.6 0.7 0.4 0 0.7-0.3 0.7-0.7v-8c0-0.3-0.3-0.6-0.7-0.6zm2.7 0c-0.4 0-0.7 0.3-0.7 0.6v8c0 0.4 0.3 0.7 0.7 0.7 0.4 0 0.7-0.3 0.7-0.7v-8c0-0.3-0.3-0.6-0.7-0.6zm2.7 0c-0.4 0-0.7 0.3-0.7 0.6v8c0 0.4 0.3 0.7 0.7 0.7 0.3 0 0.6-0.3 0.6-0.7v-8c0-0.3-0.3-0.6-0.6-0.6zm2.6 0c-0.3 0-0.6 0.3-0.6 0.6v8c0 0.4 0.3 0.7 0.6 0.7 0.4 0 0.7-0.3 0.7-0.7v-8c0-0.3-0.3-0.6-0.7-0.6z" />
+                        </svg>
                     </div>
                 </div>
 
@@ -109,13 +122,5 @@
 
     </div>
 </div>
-<script>
-    function previewFile(item) {
-        var fr = new FileReader();
-        fr.onload = (function() {
-            document.getElementById('preview').src = fr.result;
-        });
-        fr.readAsDataURL(item.files[0]);
-    }
-</script>
+<script src="{{ asset('/js/main.js') }}"></script>
 @endsection

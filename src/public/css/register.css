@@ -26,11 +26,18 @@
 
 .register-form__group {
     width: 760px;
-    height: 160px;
+    height: 140px;
     opacity: 1;
     padding-top: 15px;
     padding-bottom: 15px;
-    /* margin: 15px 0 15px 0; */
+}
+
+.register-form__group-seasons {
+    width: 760px;
+    height: 120px;
+    opacity: 1;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .register-form__group-textarea {
@@ -109,6 +116,7 @@ input::placeholder  {
 
 .register-form__imagefile {
     width: 760px;
+    height: auto;
     display: block;
 }
 
@@ -120,12 +128,13 @@ input::placeholder  {
 
 .register-form__seasons {
     width: 314px;
-    height: 110px;
+    height: 80px;
     opacity: 1;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
-
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .register-form__btn {
     display: block;
     width: 760px;

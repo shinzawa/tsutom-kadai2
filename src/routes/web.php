@@ -14,22 +14,14 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/products/register', function () {
     return view('register');
 });
 
-Route::get('/products/{productId}', [ProductController::class, 'product']);
-
 Route::get('/products', [ProductController::class, 'products']);
-
+Route::get('/products/search', [ProductController::class, 'search']);
 Route::post('/products/register', [ProductController::class, 'register']);
 
-Route::post('/products/search', [ProductController::class, 'search']);
-
-Route::patch('/products/{productId}/update', [ProductController::class, 'update']);
-
-Route::delete('/products/{productId}/delete', [ProductController::class, 'destroy']);
+Route::get('/products/{productId}', [ProductController::class, 'product']);
+Route::post('/products/{productId}/update', [ProductController::class, 'update']);
+Route::post('/products/{productId}/delete', [ProductController::class, 'destroy']);

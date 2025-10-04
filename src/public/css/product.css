@@ -61,13 +61,12 @@
 
 .product-card__item {
     width: 374px;
-    height: 350px;
+    height: 420px;
 }
 
 .product-card__image {
     width: 374px;
-    height: 281px;
-
+    height: 350px;
 }
 
 .product-card__title {

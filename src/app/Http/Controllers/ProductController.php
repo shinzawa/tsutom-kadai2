@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Season;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
     public function products()
     {
-        // if (sort) sort
-        // else 
         $query = Product::query();
         $products = $query->paginate(6);
         $seasons = Season::all();
@@ -28,50 +27,63 @@ class ProductController extends Controller
 
     public function update(RegisterRequest $request, $productId)
     {
-        if ($request->has('back')) {
-            return redirect('/products');
+        // must delete old file 
+        $product = Product::find($productId);
+        $image = $product->image;
+        // delete old file
+        if (!empty($image)) {
+            Storage::disk('public')->delete($image);
+        }
+        $image = $request->file('image');
+        if (isset($image)) {
+            $path = $image->store('', 'public');
         }
 
-        $form = $request->all();
-        unset($form['_token']);
-        $product = Product::find($productId);
+        // DB register oparation 
+        $data = $request->only([
+            'name',
+            'price',
+            'description'
+        ]);
+        $data = array_merge($data, ['image' => $path]);
+        dd($product);
+        $product->update($product);
+
         foreach ($request->seasons as $season_id) {
             $sa[] = $season_id;
         }
         $product->seasons()->sync($sa);
-        unset($form['seasons']);
-        unset($form['_method']);
-        dd($form);
-        $product->update($form);
 
         return $this->products();
     }
 
     public function search(Request $request)
     {
-        // TODO search
         $query = Product::query();
+
+        $query = $this->getSearchQuery($request, $query);
+
         $products = $query->paginate(6);
+
         $seasons = Season::all();
-        return view('products', compact('product', 'seasons'));
+        return view('product', compact('products', 'seasons'));
     }
 
     public function register(RegisterRequest $request)
     {
-        if ($request->has('back')) {
-            return redirect('/products');
+        // store image file to defined place
+        $image = $request->file('image');
+        if (isset($image)) {
+            $path = $image->store('', 'public');
         }
-
-        dd($request);
-        // TODO register oparation 
-        $product = Product::create(
-            $request->only([
-                'name',
-                'price',
-                'image',
-                'description'
-            ])
-        );
+        // DB register oparation 
+        $data = $request->only([
+            'name',
+            'price',
+            'description'
+        ]);
+        $data = array_merge($data, ['image' => $path]);
+        $product = Product::create($data);
         $seasons = $request->seasons;
         foreach ($seasons as $season_id) {
             $sa[] = $season_id;
@@ -83,9 +95,33 @@ class ProductController extends Controller
 
     public function destroy(Request $request, $productId)
     {
-        // TODO destroy one record
+        $product = Product::find($productId);
+        $image = $product['image'];
+        if (isset($image)) {
+            Storage::disk('public')->delete($image);
+        }
+
+        // destroy one record from the table
         Product::find($productId)->delete();
 
         return $this->products();
+    }
+
+    public function getSearchQuery(Request $request, $query)
+    {
+        if (!empty($request->order)) {
+            if ($request->has('name')) {
+                $query->where('name', 'like', '%' . $request->name . '%')
+                    ->orderBy('price', $request->order);
+            } else {
+                $query->orderBy('created_at', $request->order);
+            }
+        } else {
+            if ($request->has('name')) {
+                $query->where('name', 'like', '%' . $request->name . '%');
+            }
+        }
+
+        return $query;
     }
 }

@@ -13,7 +13,9 @@
 1. php artisan db:seed
 1. chmod -R 777 storage bootstrap/cache
 ## 使用技術（実行環境）
-
+PHP 8.1.33 
+Laravel Framework 8.83.8
+Ubuntu 24.04.2 LTS (on WSL)
 ## ER図
 ![ER図](ER.drawio.png)
 ## URL

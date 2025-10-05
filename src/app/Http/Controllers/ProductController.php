@@ -46,7 +46,6 @@ class ProductController extends Controller
             'description'
         ]);
         $data = array_merge($data, ['image' => $path]);
-        dd($product);
         $product->update($product);
 
         foreach ($request->seasons as $season_id) {
@@ -54,7 +53,7 @@ class ProductController extends Controller
         }
         $product->seasons()->sync($sa);
 
-        return $this->products();
+        return redirect('/products');
     }
 
     public function search(Request $request)
@@ -90,7 +89,7 @@ class ProductController extends Controller
         }
         $product->seasons()->attach($sa);
 
-        return $this->products();
+        return redirect('/products');
     }
 
     public function destroy(Request $request, $productId)
@@ -104,7 +103,7 @@ class ProductController extends Controller
         // destroy one record from the table
         Product::find($productId)->delete();
 
-        return $this->products();
+        return redirect('/products');
     }
 
     public function getSearchQuery(Request $request, $query)
@@ -114,7 +113,7 @@ class ProductController extends Controller
                 $query->where('name', 'like', '%' . $request->name . '%')
                     ->orderBy('price', $request->order);
             } else {
-                $query->orderBy('created_at', $request->order);
+                $query->orderBy('price', $request->order);
             }
         } else {
             if ($request->has('name')) {

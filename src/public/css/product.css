@@ -41,11 +41,14 @@
     justify-content: space-around;
 }
 
-.product-oparation {
+.product-operation {
     width: 240px;
     height: 280px;
 }
-
+.product-operation__input-search {
+    width: 100%;
+    height: 114px;
+}
 
 .product-card__frame {
     width: 1162px;
@@ -117,6 +120,42 @@
     gap: 24px;
 }
 
+.product-operation__input-search {
+    margin-bottom: 40px;
+}
+.search-form__name-input {
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid #E0DFDE;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.search-form__actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 44px;
+    border-radius: 5px;
+    padding: 10px;
+    background: #F5C800;
+    box-shadow: 0px 4px 10px 0px #0000001A;
+    margin-bottom: 20px;
+}
+
+.search-form__search-btn {
+    font-family: YuGothM;
+    font-weight: 600;
+    font-style: W6;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #4B4B4B;
+    border: none;
+    background: #F5C800;
+}
+
 .search-form__keyword-input {
     padding: 8px 12px;
     /* placeholderが表示される最低限の幅を最小値とする */
@@ -125,32 +164,47 @@
     background-color: #FBFBFB;
 }
 
-.sort-form__gender,
-.sort-form__category {
-    position: relative;
+.input-operation__sort-form {
+    width: 100%;
+    height: 174px;
+    padding-bottom: 20px;
+    border-bottom-width: 1px;
+    border-bottom: 1px solid #E0DFDE
 }
 
-.sort-form__gender::after,
-.sort-form__category::after {
-    position: absolute;
-    top: 50%;
-    right: 8%;
-    width: 0;
-    height: 0;
-    border-top: 12px solid #BEB1A6;
-    border-right: 8px solid transparent;
-    border-left: 8px solid transparent;
-    content: "";
-    transform: translateY(-50%);
+p {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
-.sort-form__gender-select,
-.sort-form__category-select {
-    padding: 8px 12px;
-    height: 100%;
-    background-color: #F4F4F4;
+.search-form__order-title {
+    width: 240;
+    height: 30;
+    color: #333333;
+    font-family: YuGothM;
+    font-size: 20px;
 }
 
-.sort-form__gender-select {
-    min-width: 96px;
+.sort-form__price-order {
+    justify-content: space-between;
+
+}
+
+.sort-form__order-select {
+    width: 240px;
+    height: 43px;
+    padding-top: 11px;
+    padding-right: 10px;
+    padding-bottom: 11px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    font-family: YuGothM;
+    font-weight: 300;
+    font-style: W3;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #E0DFDE;
+    border: 1px solid #E0DFDE
 }

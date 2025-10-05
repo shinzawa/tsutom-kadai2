@@ -72,8 +72,8 @@
         <div class="product-card__frame">
             <div class="product-card__list">
                 @foreach($products as $product)
-                <form action="/products/{{ $product->id}}" method="get" class="product-card" novalidate>
-                    @csrf
+                <a href="/products/{{ $product->id}}" class="product-card" novalidate>
+                    <!-- @csrf -->
                     <div class="product-card__item">
                         <div class="product-card__image">
                             <input type="image" src="{{ asset(  'storage/' . $product->image )}}" width="374px" height="340px" style="object-fit: cover;" alt="{{ $product->image}}"></input>
@@ -83,7 +83,7 @@
                             <span class="product-card__title-price">&yen; {{ $product->price}}</span>
                         </div>
                     </div>
-                </form>
+                </a>
                 @endforeach
 
             </div>

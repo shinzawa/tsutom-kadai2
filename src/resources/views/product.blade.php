@@ -45,35 +45,48 @@
                     @csrf
                     <input type="hidden" name="order" value="{{ request('order')}}">
                     <input class="search-form__name-input" type="text" name="name" value="{{ request('name')}}" placeholder="  商品名で検索">
-                    <div class="search-form__actions">
-                        <input class="search-form__search-btn" type="submit" value="検索">
-                    </div>
-            </div>
-            </form>
-            <div class="input-operation__sort-form">
-                <form class="sort-form" action="/products/search" method="get" novalidate>
-                    @csrf
-                    <p for="" class="search-form__order-title">価格順で表示</p>
-                    <div class="sort-form__price-order">
-                        <input type="hidden" name="name" value="{{ request('name')}}">
-                        <div class="sort-form__order-select-inner">
-                            <select class="sort-form__order-select" name=" order" value="{{ request('order')}}" onchange="handleSelectChange(this)">
-                                <option disabled selected value="">価格で並べ替え</option>
-                                <option value="desc">高い順に表示</option>
-                                <option value="asc">低い順に表示</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="sort-form__order-tag">
+                    <div class="search-form__actions" onclick="document.getElementById('submit_button').click();">
+                        <input class="search-form__search-btn" id="submit_button" type="submit" value="検索"></input>
                     </div>
                 </form>
+            </div>
+            <div class="input-operation__sort-form">
+            <form class="sort-form" action="/products/search" method="get" novalidate>
+                @csrf
+                <p for="" class="search-form__order-title">価格順で表示</p>
+                <div class="sort-form__price-order">
+                    <input type="hidden" name="name" value="{{ request('name')}}">
+                    <div class="sort-form__order-select-inner">
+                        <select id="sortSelected" class="sort-form__order-select" name="order" onchange="handleSelectChange(this)">
+                            <option disable @if( old('order','')=='' ) selected @endif value="">価格で並べ替え</option>
+                            <option @if( request('order')=='desc' ) selected @endif value="desc">高い順に表示</option>
+                            <option @if( request('order')=='asc' ) selected @endif value="asc">低い順に表示</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="sort-order-tag-desc" class="sort-form__order-tag" style="display:none;">
+                    高い順に表示
+                    <a href="/products">
+                        <div class="sort-form__order-tag-reset">
+                            <span>×</span>
+                        </div>
+                    </a>
+                </div>
+                <div id="sort-order-tag-asc" class="sort-form__order-tag" style="display:none;">
+                    低い順に表示
+                    <a href="/products">
+                        <div class="sort-form__order-tag-reset">
+                            <span>×</span>
+                        </div>
+                    </a>
+                </div>
+            </form>
             </div>
         </div>
         <div class="product-card__frame">
             <div class="product-card__list">
                 @foreach($products as $product)
                 <a href="/products/{{ $product->id}}" class="product-card" novalidate>
-                    <!-- @csrf -->
                     <div class="product-card__item">
                         <div class="product-card__image">
                             <input type="image" src="{{ asset(  'storage/' . $product->image )}}" width="374px" height="340px" style="object-fit: cover;" alt="{{ $product->image}}"></input>

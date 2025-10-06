@@ -20,4 +20,4 @@ Ubuntu 24.04.2 LTS (on WSL)
 ## ER図
 ![ER図](ER.drawio.png)
 ## URL
-- 開発環境: http://localhost/
+- 開発環境: http://localhost/products

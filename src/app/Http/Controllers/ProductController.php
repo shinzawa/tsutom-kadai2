@@ -47,7 +47,8 @@ class ProductController extends Controller
             'description'
         ]);
         $data = array_merge($data, ['image' => $path]);
-        $product->update($product);
+        
+        $product->update($data);
 
         foreach ($request->seasons as $season_id) {
             $sa[] = $season_id;
@@ -67,7 +68,7 @@ class ProductController extends Controller
 
         $seasons = Season::all();
         $orderP=$request->order;
-        
+
         return view('product', compact('products', 'seasons','orderP'));
     }
 

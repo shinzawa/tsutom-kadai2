@@ -53,18 +53,18 @@
             <div class="input-operation__sort-form">
             <form class="sort-form" action="/products/search" method="get" novalidate>
                 @csrf
-                <p for="" class="search-form__order-title">価格順で表示</p>
+                <p class="search-form__order-title">価格順で表示</p>
                 <div class="sort-form__price-order">
                     <input type="hidden" name="name" value="{{ request('name')}}">
                     <div class="sort-form__order-select-inner">
                         <select id="sortSelected" class="sort-form__order-select" name="order" onchange="handleSelectChange(this)">
-                            <option disable @if( old('order','')=='' ) selected @endif value="">価格で並べ替え</option>
-                            <option @if( request('order')=='desc' ) selected @endif value="desc">高い順に表示</option>
-                            <option @if( request('order')=='asc' ) selected @endif value="asc">低い順に表示</option>
+                            <option disable  selected  value="">価格で並べ替え</option>
+                            <option  value="desc">高い順に表示</option>
+                            <option  value="asc">低い順に表示</option>
                         </select>
                     </div>
                 </div>
-                <div id="sort-order-tag-desc" class="sort-form__order-tag" style="display:none;">
+                <div id="sort-order-tag-desc" class="sort-form__order-tag" @if ($orderP=='desc') style="display: block;" @else style="display:none;" @endif>
                     高い順に表示
                     <a href="/products">
                         <div class="sort-form__order-tag-reset">
@@ -72,7 +72,7 @@
                         </div>
                     </a>
                 </div>
-                <div id="sort-order-tag-asc" class="sort-form__order-tag" style="display:none;">
+                <div id="sort-order-tag-asc" class="sort-form__order-tag" @if ($orderP=='asc') style="display: block" @else style="display:none;" @endif>
                     低い順に表示
                     <a href="/products">
                         <div class="sort-form__order-tag-reset">

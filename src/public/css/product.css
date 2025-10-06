@@ -104,9 +104,6 @@
 }
 
 .product-card__links {
-    /* display: block; */
-    /* display: flex;
-    justify-content: space-between; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,8 +116,7 @@
     display: flex;
     align-items: stretch;
     flex-wrap: wrap;
-
-    gap: 24px;
+    height: 170px;
 }
 
 .product-operation__input-search {

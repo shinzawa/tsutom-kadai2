@@ -15,7 +15,8 @@ class ProductController extends Controller
         $query = Product::query();
         $products = $query->paginate(6);
         $seasons = Season::all();
-        return view('product', compact('products', 'seasons'));
+        $orderP='';
+        return view('product', compact('products', 'seasons', 'orderP'));
     }
 
     public function product($productId)
@@ -65,7 +66,9 @@ class ProductController extends Controller
         $products = $query->paginate(6);
 
         $seasons = Season::all();
-        return view('product', compact('products', 'seasons'));
+        $orderP=$request->order;
+        
+        return view('product', compact('products', 'seasons','orderP'));
     }
 
     public function register(RegisterRequest $request)

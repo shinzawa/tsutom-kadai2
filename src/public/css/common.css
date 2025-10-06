@@ -1,11 +1,18 @@
 .header {
     display: flex;
-    width: 100%;
-    height: 100px;
     background: #FFFFFF;
+    width: 1512px;
+    height: 53px;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    border-bottom-width: 1px;
 }
 
 .header__inner {
+    width: 1512px;
+    height: 53px;
     margin: 0 0 0 0;
 }
 
@@ -21,10 +28,8 @@ hr {
     justify-content: flex-start;
     vertical-align: middle;
     align-items: center;
-    width: 504px;
-    height: 100px;
-    background-color: white;
-}
+    width: 1512px;
+    height: 53px;}
 
 .header__logo {
     text-align: center;
@@ -34,8 +39,6 @@ hr {
     text-decoration: italic;
     font-weight: 300;
     font-size: 30px;
-
-
 }
 
 .header-nav {
@@ -45,7 +48,6 @@ hr {
     vertical-align: middle;
     width: 500px;
     height: 100px;
-
 }
 
 .header-nav__item {

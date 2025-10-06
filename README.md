@@ -12,6 +12,7 @@
 1. php artisan migrate
 1. php artisan db:seed
 1. chmod -R 777 storage bootstrap/cache
+1. php artisan storage:link
 ## 使用技術（実行環境）
 PHP 8.1.33 
 Laravel Framework 8.83.8

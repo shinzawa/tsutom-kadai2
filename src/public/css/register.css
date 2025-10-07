@@ -118,6 +118,7 @@ input::placeholder  {
     width: 760px;
     height: auto;
     display: block;
+    margin-top: 20px;
 }
 
 .register-form__imagefile-span {

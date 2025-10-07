@@ -46,7 +46,7 @@
                         </label>
                     </div>
                     <div>
-                        <image src="{{ asset(  'storage/' . old('image') )}}" width="374px" height="340px" style="object-fit:cover;" alt="{{ old('image')}}" id="preview"></image>
+                        <image src="{{ asset(  'storage/' . old('image') )}}" width="374px" height="340px" style="object-fit:cover;display:none;" alt="{{ old('image')}}" id="preview"></image>
                     </div>
 
                     <div class="product-card__image">
@@ -54,6 +54,7 @@
                     </div>
                     <label for="image" class="register-form__imagefile">
                         <span class="register-form__imagefile-span">ファイルを選択</span>
+                        <span id="fileNameDisplay">ファイルが選択されていません</span>
                         <input class="register-form__input-file" type="file" name="image" id="image" accept="image/png,image/jpeg" onchange="previewFile(this);" style="display:none">
                     </label>
 

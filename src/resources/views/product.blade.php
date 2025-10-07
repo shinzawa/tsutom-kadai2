@@ -44,7 +44,7 @@
                 <form action="/products/search" method="get" class="search-form" novalidate>
                     @csrf
                     <input type="hidden" name="order" value="{{ request('order')}}">
-                    <input class="search-form__name-input" type="text" name="name" value="{{ request('name')}}" placeholder="  商品名で検索">
+                    <input class="search-form__name-input" type="text" name="search_name" value="{{ request('search_name')}}" placeholder="  商品名で検索">
                     <div class="search-form__actions" onclick="document.getElementById('submit_button').click();">
                         <input class="search-form__search-btn" id="submit_button" type="submit" value="検索"></input>
                     </div>
@@ -55,7 +55,7 @@
                 @csrf
                 <p class="search-form__order-title">価格順で表示</p>
                 <div class="sort-form__price-order">
-                    <input type="hidden" name="name" value="{{ request('name')}}">
+                    <input type="hidden" name="search_name" value="{{ request('search_name')}}">
                     <div class="sort-form__order-select-inner">
                         <select id="sortSelected" class="sort-form__order-select" name="order" onchange="handleSelectChange(this)">
                             <option disable  selected  value="">価格で並べ替え</option>

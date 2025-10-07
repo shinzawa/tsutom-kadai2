@@ -113,15 +113,15 @@ class ProductController extends Controller
     public function getSearchQuery(Request $request, $query)
     {
         if (!empty($request->order)) {
-            if ($request->has('name')) {
-                $query->where('name', 'like', '%' . $request->name . '%')
+            if ($request->has('search_name')) {
+                $query->where('name', 'like', '%' . $request->search_name . '%')
                     ->orderBy('price', $request->order);
             } else {
                 $query->orderBy('price', $request->order);
             }
         } else {
-            if ($request->has('name')) {
-                $query->where('name', 'like', '%' . $request->name . '%');
+            if ($request->has('search_name')) {
+                $query->where('name', 'like', '%' . $request->search_name . '%');
             }
         }
 

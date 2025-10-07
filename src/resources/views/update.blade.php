@@ -67,11 +67,11 @@
                                     @endphp
                                     <input type="checkbox" name="seasons[]" value="1" {{ in_array('1', $sa) ? 'checked' :'' }} id="1">
                                     <label class="update-form__checkbox-label" for="1">春</label>
-                                    <input type="checkbox" name="seasons[]" value="2" {{in_array('2', $sa) ? 'checked' :'' }}id="2">
+                                    <input type="checkbox" name="seasons[]" value="2" {{ in_array('2', $sa) ? 'checked' :'' }} id="2">
                                     <label class="update-form__checkbox-label" for="2">夏</label>
-                                    <input type="checkbox" name="seasons[]" value="3" {{in_array('3', $sa) ? 'checked' :'' }} id="3">
+                                    <input type="checkbox" name="seasons[]" value="3" {{ in_array('3', $sa) ? 'checked' :'' }} id="3">
                                     <label class="update-form__checkbox-label" for="3">秋</label>
-                                    <input type="checkbox" name="seasons[]" value="4" {{in_array('4', $sa) ? 'checked' :'' }} id="4">
+                                    <input type="checkbox" name="seasons[]" value="4" {{ in_array('4', $sa) ? 'checked' :'' }} id="4">
                                     <label class="update-form__checkbox-label" for="4">冬</label>
                                 </div>
                                 <p class="update-form__error-message">

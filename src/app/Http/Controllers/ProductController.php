@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function products()
     {
         $query = Product::query();
-        $products = $query->paginate(6);
+        $products = $query->orderBy('id','desc')->paginate(6);
         $seasons = Season::all();
         $orderP='';
         return view('product', compact('products', 'seasons', 'orderP'));

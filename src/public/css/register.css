@@ -1,5 +1,5 @@
 .register__main {
-    width: 1512px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,13 +19,13 @@
 }
 
 .register-form__main {
-    width: 760px;
+    width: 100%;
     height: 1300px;
     display: block;
 }
 
 .register-form__group {
-    width: 760px;
+    width: 100%;
     height: 140px;
     opacity: 1;
     padding-top: 15px;
@@ -33,7 +33,7 @@
 }
 
 .register-form__group-seasons {
-    width: 760px;
+    width: 100%;
     height: 120px;
     opacity: 1;
     padding-top: 15px;
@@ -41,7 +41,7 @@
 }
 
 .register-form__group-textarea {
-    width: 760px;
+    width: 100%;
     height: 194px;
     opacity: 1;
     padding-top: 15px;
@@ -49,7 +49,7 @@
 }
 
 .register-form__textarea {
-    width: 760px;
+    width: 100%;
     height: 100px;
     border-radius: 5px;
     border-width: 1px;
@@ -68,8 +68,6 @@
     font-size: 16px;
     width: 146px;
     height: 24px;
-    opacity: 1;
-    gap: 10px;
 }
 
 .register-form__required {
@@ -98,7 +96,7 @@ input::placeholder  {
 }
 
 .register-form__input {
-    width: 760px;
+    width: 100%;
     height: 43px;
     font-family: YuGothM;
     font-size: 14px;
@@ -115,7 +113,7 @@ input::placeholder  {
 }
 
 .register-form__imagefile {
-    width: 760px;
+    width: 100%;
     height: auto;
     display: block;
     margin-top: 20px;
@@ -138,13 +136,13 @@ p {
 }
 .register-form__btn {
     display: block;
-    width: 760px;
+    width: 100%;
     height: 50px;
     padding-top: 15px;
 }
 
 .register-form__btn-inner {
-    width: 760px;
+    width: 100%;
     height: 50px;
     opacity: 1;
     gap: 20px;
@@ -153,7 +151,7 @@ p {
 }
 
 .register-form__back-btn {
-    width: 200px;
+    width: 26%;
     height: 50px;
     border-radius: 5px;
     opacity: 1;
@@ -167,7 +165,7 @@ p {
 }
 
 .register-form__store-btn {
-    width: 200px;
+    width: 26%;
     height: 50px;
     border-radius: 5px;
     opacity: 1;

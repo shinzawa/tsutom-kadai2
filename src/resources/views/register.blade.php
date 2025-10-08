@@ -54,7 +54,7 @@
                     </div>
                     <label for="image" class="register-form__imagefile">
                         <span class="register-form__imagefile-span">ファイルを選択</span>
-                        <span id="fileNameDisplay">ファイルが選択されていません</span>
+                        <span id="fileNameDisplay"></span>
                         <input class="register-form__input-file" type="file" name="image" id="image" accept="image/png,image/jpeg" onchange="previewFile(this);" style="display:none">
                     </label>
 

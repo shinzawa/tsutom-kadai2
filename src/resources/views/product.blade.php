@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/product.css') }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 @endsection
 
 @section('content')
@@ -51,36 +52,36 @@
                 </form>
             </div>
             <div class="input-operation__sort-form">
-            <form class="sort-form" action="/products/search" method="get" novalidate>
-                @csrf
-                <p class="search-form__order-title">価格順で表示</p>
-                <div class="sort-form__price-order">
-                    <input type="hidden" name="search_name" value="{{ request('search_name')}}">
-                    <div class="sort-form__order-select-inner">
-                        <select id="sortSelected" class="sort-form__order-select" name="order" onchange="handleSelectChange(this)">
-                            <option disable  selected  value="">価格で並べ替え</option>
-                            <option  value="desc">高い順に表示</option>
-                            <option  value="asc">低い順に表示</option>
-                        </select>
+                <form class="sort-form" action="/products/search" method="get" novalidate>
+                    @csrf
+                    <p class="search-form__order-title">価格順で表示</p>
+                    <div class="sort-form__price-order">
+                        <input type="hidden" name="search_name" value="{{ request('search_name')}}">
+                        <div class="sort-form__order-select-inner">
+                            <select id="sortSelected" class="sort-form__order-select" name="order" onchange="handleSelectChange(this)">
+                                <option disable selected value="">価格で並べ替え</option>
+                                <option value="desc">高い順に表示</option>
+                                <option value="asc">低い順に表示</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div id="sort-order-tag-desc" class="sort-form__order-tag" @if ($orderP=='desc') style="display: block;" @else style="display:none;" @endif>
-                    高い順に表示
-                    <a href="/products">
-                        <div class="sort-form__order-tag-reset">
-                            <span>×</span>
-                        </div>
-                    </a>
-                </div>
-                <div id="sort-order-tag-asc" class="sort-form__order-tag" @if ($orderP=='asc') style="display: block" @else style="display:none;" @endif>
-                    低い順に表示
-                    <a href="/products">
-                        <div class="sort-form__order-tag-reset">
-                            <span>×</span>
-                        </div>
-                    </a>
-                </div>
-            </form>
+                    <div id="sort-order-tag-desc" class="sort-form__order-tag" @if ($orderP=='desc' ) style="display: block;" @else style="display:none;" @endif>
+                        高い順に表示
+                        <a href="/products">
+                            <div class="sort-form__order-tag-reset">
+                                <span>×</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="sort-order-tag-asc" class="sort-form__order-tag" @if ($orderP=='asc' ) style="display: block" @else style="display:none;" @endif>
+                        低い順に表示
+                        <a href="/products">
+                            <div class="sort-form__order-tag-reset">
+                                <span>×</span>
+                            </div>
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="product-card__frame">

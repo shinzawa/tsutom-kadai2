@@ -17,8 +17,13 @@
                             <label class="update-form__label" for="price">
                                 商品画像<span class="update-form__required">必須</span>
                             </label>
-                            <image src="{{ asset(  'storage/' . old('image',isset($product) ? $product->image : '') )}}" width="374px" height="340px" style="object-fit:cover;" alt="{{ old('image', isset($product) ? $product->image : '')}}" id="preview"></image>
-                            <input class="update-form__input-file" type="file" name="image" id="imageInput" accept="image/png,image/jpeg" onchange="previewFile(this);"></input>
+                            <image src="{{ asset(  'storage/' . old('image',isset($product) ? $product->image : '') )}}" width="374px" height="281px" style="object-fit:cover;" alt="{{ old('image', isset($product) ? $product->image : '')}}" id="preview"></image>
+                            <label for="image" class="update-form__imagefile">
+                                <span class="update-form__imagefile-span">ファイルを選択</span>
+                                <span id="fileNameDisplay">{{ old('image',isset($product) ? $product->image : '')}}</span>
+                                <input class="update-form__input-file" type="file" name="image" id="image" accept="image/png,image/jpeg" onchange="previewFile(this);" style="display:none">
+                            </label>
+                            <!-- <input class="update-form__input-file" type="file" name="image" id="imageInput" accept="image/png,image/jpeg" onchange="previewFile(this);"></input> -->
                             <p class="update-form__error-message">
                                 @error('image')
                                 {{ $message }}

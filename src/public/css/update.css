@@ -1,12 +1,13 @@
 .update__main {
-    width: 1512px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .update__content {
-    width: 760px;
+    max-width: 800px;
+    width: 53%;
     background-color: #F8F8F8;
 }
 
@@ -19,31 +20,35 @@
 }
 
 .update-form__main {
-    width: 760px;
+    width: 100%;
     display: block;
 }
 .update-form__upper {
-    width: 760px;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
 }
 .update-form__left {
+    flex-shrink: 0;
     width: 374px;
     height: 477px;
 }
 
 .update-form__right {
-    width: 396px;
+    flex-grow: 1;
+    max-width: 396px;
+    width: 100%;
     height: 477px;
 }
 .update-form__group {
-    width: 374px;
+    width: 100%;
     height: 160px;
     opacity: 1;
     margin: 15px 0 15px 0;
 }
 
 .update-form__group-textarea {
-    width: 760px;
+    width: 100%;
     height: auto;
     opacity: 1;
     margin: 15px 0 15px 0;
@@ -53,7 +58,7 @@ p {
     margin-bottom: 0;
 }
 .update-form__textarea {
-    width: 760px;
+    width: 100%;
     height: 160px;
     border-radius: 5px;
     border-width: 1px;
@@ -104,7 +109,7 @@ input::placeholder {
     width: 340px;
 }
 .update-form__input {
-    width: 377px;
+    width: 100%;
     height: 43px;
     font-family: YuGothM;
     font-size: 14px;
@@ -122,6 +127,7 @@ input::placeholder {
 
 .update-form__imagefile {
     width: 374px;
+    height: auto;
     display: block;
 }
 
@@ -140,13 +146,14 @@ input::placeholder {
 
 .update-form__btn {
     display: block;
-    width: 760px;
+    width: 100%;
+    max-width: 760px;
     height: 50px;
     margin: 15px 0 0 0;
 }
 
 .update-form__btn-inner {
-    width: 760px;
+    width: 100%;
     height: 50px;
     opacity: 1;
     gap: 20px;
@@ -155,7 +162,7 @@ input::placeholder {
 }
 
 .update-form__back-btn {
-    width: 200px;
+    width: 25%;
     height: 50px;
     border-radius: 5px;
     opacity: 1;
@@ -169,7 +176,7 @@ input::placeholder {
 }
 
 .update-form__store-btn {
-    width: 200px;
+    width: 25%;
     height: 50px;
     border-radius: 5px;
     opacity: 1;

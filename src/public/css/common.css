@@ -1,7 +1,6 @@
 .header {
     display: flex;
     background: #FFFFFF;
-    width: 1512px;
     height: 53px;
     padding-top: 10px;
     padding-right: 20px;
@@ -11,7 +10,6 @@
 }
 
 .header__inner {
-    width: 1512px;
     height: 53px;
     margin: 0 0 0 0;
 }
@@ -28,7 +26,6 @@ hr {
     justify-content: flex-start;
     vertical-align: middle;
     align-items: center;
-    width: 1512px;
     height: 53px;}
 
 .header__logo {

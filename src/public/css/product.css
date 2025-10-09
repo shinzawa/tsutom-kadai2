@@ -85,7 +85,6 @@
         display: flex;
         height: auto;
         flex-wrap: wrap;
-        justify-content: space-between;
     }
 }
 
@@ -106,7 +105,6 @@
         height: auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
     }
 }
 
@@ -126,7 +124,6 @@
         height: auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
     }
 }
 
@@ -135,6 +132,7 @@
     width: 374px;
     height: 420px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .product-card__image {
